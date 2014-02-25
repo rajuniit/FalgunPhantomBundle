@@ -1,5 +1,5 @@
 {
-    "name": "Falgun/bundle/phantom-bundle",
+    "name": "falgun/phantom-bundle",
     "type": "symfony-bundle",
     "description": "Generate pdf using phantomjs",
     "keywords": ["pdf", "phantomjs","symfony2"],
