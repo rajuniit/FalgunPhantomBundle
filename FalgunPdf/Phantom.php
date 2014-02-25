@@ -1,20 +1,80 @@
 <?php
 
+/*
+ * This file is part of the falgun phantom bundle.
+ *
+ * (c) rajuniit.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Falgun\Bundle\PhantomBundle\FalgunPdf;
 
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Loader;
 
+/**
+ * Class Phantom
+ * @package Falgun\Bundle\PhantomBundle\FalgunPdf
+ */
 class Phantom
 {
-    protected $source,$configuration,$outfile;
-    protected $options,$result,$error;
+    /**
+     * @var string
+     */
+    protected $source;
+
+    /**
+     * @var Configuration
+     */
+    protected $configuration;
+
+    /**
+     * @var string
+     */
+    protected $outfile;
+
+    /**
+     * @var array
+     */
+    protected $options = array();
+
+    /**
+     * @var string
+     */
+    protected $result;
+
+    /**
+     * @var string
+     */
+    protected $error;
+
+    /**
+     * @var array
+     */
     protected $config;
+
+    /**
+     * @var string
+     */
     protected $scriptFile = '';
+
+    /**
+     * @var string
+     */
     protected $cookieFilePath = '';
+
+    /**
+     * @var string
+     */
     protected $phantom;
 
+
+    /**
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $configuration = new Configuration();
@@ -36,6 +96,9 @@ class Phantom
         $this->result = `{$command}`;
     }
 
+    /**
+     * @return string
+     */
     protected function getCommand()
     {
         $this->dumpCookies();
@@ -59,15 +122,21 @@ class Phantom
         $phantomjs = $this->config['phantomjs'];
 
         $command = $phantomjs . " ". $command_config_file. " ".
-                   $this->scriptFile. " ". $this->source. " ".
-                   $this->outfile. " ". $format. " ". $zoom. " ".
-                   $margin. " ". $orientation. " " .$this->cookieFilePath. " ". $rendering_time. " ".
-                   $rendering_timeout. " ". $viewport_width. " ".
-                   $viewport_height;
+            $this->scriptFile. " ". $this->source. " ".
+            $this->outfile. " ". $format. " ". $zoom. " ".
+            $margin. " ". $orientation. " " .$this->cookieFilePath. " ". $rendering_time. " ".
+            $rendering_timeout. " ". $viewport_width. " ".
+            $viewport_height;
 
         return $command;
     }
 
+    /**
+     * @param $url
+     * @param array $config
+     * @param null $outfile
+     * @return null
+     */
     public function to_pdf($url, $config = array(), $outfile = null)
     {
         $this->outfile = $outfile;
@@ -77,6 +146,9 @@ class Phantom
 
     }
 
+    /**
+     * @return string
+     */
     private function generateRandomNumber()
     {
         $s = strtoupper(md5(uniqid(rand(),true)));
@@ -88,6 +160,7 @@ class Phantom
             substr($s,20);
         return $guidText;
     }
+
 
     private function dumpCookies()
     {
