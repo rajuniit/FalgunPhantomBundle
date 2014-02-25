@@ -1,0 +1,25 @@
+{
+    "name": "Falgun/bundle/phantom-bundle",
+    "type": "symfony-bundle",
+    "description": "Generate pdf using phantomjs",
+    "keywords": ["pdf", "phantomjs","symfony2"],
+    "homepage": "http://github.com/rajuniit/FalgunPhantomBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raju Mazumder",
+            "email": "rajuniit@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "require-dev": {
+        "symfony/framework-bundle": "2.4.1"
+    },
+    "autoload": {
+        "psr-0": { "Falgun\\Bundle\\PhantomBundle": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "Falgun/Bundle/PhantomBundle"
+}

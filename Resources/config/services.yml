@@ -1,0 +1,7 @@
+parameters:
+    falgun_pdf.class: Falgun\Bundle\PhantomBundle\FalgunPdf\Phantom
+
+services:
+   falgun_pdf:
+        class: %falgun_pdf.class%
+        arguments: ["@service_container"]
