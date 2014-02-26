@@ -24,5 +24,9 @@ class FalgunPhantomExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        foreach ($config as $key => $value) {
+            $container->setParameter('falgun_pdf.'.$key, $value);
+        }
     }
 }

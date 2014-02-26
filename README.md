@@ -14,7 +14,10 @@ Install phantomjs 1.9.2 from this link http://phantomjs.org/download.html
 
 Add FalgunPhantomBundle in your composer.json as below:
 
+```
+"falgun/phantom-bundle": "dev-master"
 
+```
 
 Update/install with this command:
 
