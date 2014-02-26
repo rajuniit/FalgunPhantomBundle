@@ -62,7 +62,7 @@ falgun_phantom:
 public function indexAction()
 {
     $falgun_pdf = $this->get('falgun_pdf');
-    $result = $falgun_pdf->to_pdf("www.google.com");
+    $result = $falgun_pdf->to_pdf("http://www.google.com");
 }
 
 ```
