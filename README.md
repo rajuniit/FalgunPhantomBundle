@@ -42,7 +42,7 @@ public function registerBundles()
 
 ```
 # app/config/config.yml
-falgun_pdf:
+falgun_phantom:
   config:
     format: 'A3'
     margin: '.5cm'

@@ -26,7 +26,7 @@ class FalgunPhantomExtension extends Extension
         $loader->load('services.yml');
 
         foreach ($config as $key => $value) {
-            $container->setParameter('falgun_pdf.'.$key, $value);
+            $container->setParameter('falgun_phantom.'.$key, $value);
         }
     }
 }

@@ -79,7 +79,7 @@ class Phantom
     {
         $configuration = new Configuration();
         $config = $configuration->getDefaultConfig();
-        $this->config = array_merge($config, $container->getParameter('falgun_pdf.config'));
+        $this->config = array_merge($config, $container->getParameter('falgun_phantom.config'));
 
         $this->phantom = exec('which phantomjs');
 
